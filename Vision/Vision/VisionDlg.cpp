@@ -56,6 +56,8 @@ CVisionDlg::CVisionDlg(CWnd* pParent /*=NULL*/)
 void CVisionDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST_IN, m_ListBox_In);
+	DDX_Control(pDX, IDC_LIST_OUT, m_ListBox_Out);
 }
 
 BEGIN_MESSAGE_MAP(CVisionDlg, CDialog)
