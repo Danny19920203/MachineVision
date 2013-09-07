@@ -206,6 +206,14 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\Task.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TaskName.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Vision.cpp"
 				>
 			</File>
@@ -233,6 +241,14 @@
 			</File>
 			<File
 				RelativePath=".\targetver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Task.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TaskName.h"
 				>
 			</File>
 			<File

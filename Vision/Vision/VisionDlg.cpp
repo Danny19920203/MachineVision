@@ -5,7 +5,14 @@
 #include "stdafx.h"
 #include "Vision.h"
 #include "VisionDlg.h"
+#include "Task.h"
 
+
+CTask g_Task;
+
+int n_TempNum;
+
+CTaskName g_TaskName;
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -49,6 +56,7 @@ END_MESSAGE_MAP()
 
 CVisionDlg::CVisionDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CVisionDlg::IDD, pParent)
+	, m_Edit_Num(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -58,6 +66,7 @@ void CVisionDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST_IN, m_ListBox_In);
 	DDX_Control(pDX, IDC_LIST_OUT, m_ListBox_Out);
+	DDX_Control(pDX, IDC_COMBO, m_ComboBox);
 }
 
 BEGIN_MESSAGE_MAP(CVisionDlg, CDialog)
@@ -65,6 +74,8 @@ BEGIN_MESSAGE_MAP(CVisionDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
+	ON_CBN_SELCHANGE(IDC_COMBO, &CVisionDlg::OnCbnSelchangeCombo)
+	ON_BN_CLICKED(IDC_BT_ADD, &CVisionDlg::OnBnClickedBtAdd)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +164,39 @@ HCURSOR CVisionDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+float CVisionDlg::TriangleArea(int bottom, int height)
+{
+	f_Area = (float)(bottom * height) / 2;
+
+	return f_Area;
+}
+
+float CVisionDlg::RecArea(int length, int width)
+{
+	f_Area = (float)length * (float)width;
+
+	return f_Area;
+}
+
+float CVisionDlg::CircularArea(int radius)
+{
+	f_Area = (float)radius * (float)radius * 3.14f;
+
+	return f_Area;
+}
+void CVisionDlg::OnCbnSelchangeCombo()
+{
+
+}
+
+void CVisionDlg::OnBnClickedBtAdd()
+{
+	if (g_TaskName.DoModal() == IDOK)
+	{
+		m_ListBox_In.AddString(g_Task._Test[n_TempNum].s_Name);
+	}
+	else
+	{
+		return;
+	}
+}

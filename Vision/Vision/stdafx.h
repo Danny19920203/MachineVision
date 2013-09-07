@@ -37,7 +37,13 @@
 
 #include <afxcontrolbars.h>     // 功能区和控件条的 MFC 支持
 
+#define TRIANGLE	L"三角形"
+#define REC			L"矩形"
+#define CIRCULAR	L"圆"
 
+#define TRIANGLE_FLAG	1
+#define REC_FLAG		2
+#define CIRCULAR_FLAG	3
 
 
 

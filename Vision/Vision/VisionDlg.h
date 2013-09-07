@@ -4,6 +4,9 @@
 
 #pragma once
 #include "afxwin.h"
+#include "TaskName.h"
+
+
 
 
 // CVisionDlg 对话框
@@ -20,10 +23,11 @@ public:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
 
 
+
 // 实现
 protected:
 	HICON m_hIcon;
-
+	
 	// 生成的消息映射函数
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
@@ -33,4 +37,12 @@ protected:
 public:
 	CListBox m_ListBox_In;
 	CListBox m_ListBox_Out;
+	float f_Area;
+	float TriangleArea(int bottom, int height);
+	float RecArea(int length, int width);
+	float CircularArea(int radius);
+	CComboBox m_ComboBox;
+	afx_msg void OnCbnSelchangeCombo();
+	CString m_Edit_Num;
+	afx_msg void OnBnClickedBtAdd();
 };
